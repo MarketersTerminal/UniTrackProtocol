@@ -1,0 +1,26 @@
+[profile.default]
+src = "contracts"
+test = "test"
+out = "out"
+libs = ["lib"]
+solc = "0.8.34"
+optimizer = false
+optimizer_runs = 200
+verbosity = 2
+
+# Match deployed bytecode exactly. UniTrackRegistry was deployed with
+# v0.8.34, optimization OFF, MIT license. Same params for UniTrackPulse.
+# Source verification on Sourcify (Exact Match) and Basescan depend on
+# these settings staying stable.
+
+[fuzz]
+runs = 1024
+
+[invariant]
+runs = 256
+depth = 64
+
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
